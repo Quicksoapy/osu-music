@@ -14,3 +14,5 @@ C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.dll
 C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\ref\osumusic.dll
 C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.pdb
 C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.genruntimeconfig.cache
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\bin\Debug\net5.0\TagLibSharp.dll
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.csproj.CopyComplete

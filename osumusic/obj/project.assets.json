@@ -1,11 +1,41 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "TagLibSharp/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/TagLibSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/TagLibSharp.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "TagLibSharp/2.2.0": {
+      "sha512": "X8UOWeaJgHGrN3xilg3O0lqowhUSwNEiGrE8ITDd1rCn14LqGCWKgn5GX++SW4vuXBMne8+pyic6aUvOFQMRlA==",
+      "type": "package",
+      "path": "taglibsharp/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/TagLibSharp.dll",
+        "lib/net45/TagLibSharp.pdb",
+        "lib/net45/TaglibSharp.xml",
+        "lib/netstandard2.0/TagLibSharp.dll",
+        "lib/netstandard2.0/TagLibSharp.pdb",
+        "lib/netstandard2.0/TaglibSharp.xml",
+        "taglibsharp.2.2.0.nupkg.sha512",
+        "taglibsharp.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "TagLibSharp >= 2.2.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Gamin\\.nuget\\packages\\": {},
@@ -49,6 +79,12 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "TagLibSharp": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using TagLib.Flac;
+using File = System.IO.File;
 
 namespace osumusic
 {
@@ -35,11 +37,22 @@ namespace osumusic
                 var filename = Path.GetFileName(song);
                 if (!File.Exists(addressResult + "/" + filename + ".mp3"))
                 {
+                    File.Copy(mp3path[0], addressResult + "/" + filename + ".mp3");
+                    var mp3file = TagLib.File.Create(addressResult + "/" + filename + ".mp3");
+                    
                     if (artworkBool == "0")
                     {
-                        
+                        if (mp3file.Tag.Pictures.Length > 0)
+                        {
+                            var pictures = new Picture[0];
+                            mp3file.Tag.Pictures = pictures;
+                            mp3file.Save();
+                        }
                     }
-                    File.Copy(mp3path[0], addressResult + "/" + filename + ".mp3");
+                }
+                else
+                {
+                    Console.WriteLine("File not found");
                 }
             }
             
