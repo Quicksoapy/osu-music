@@ -1,0 +1,16 @@
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\bin\Debug\net5.0\osumusic.exe
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\bin\Debug\net5.0\osumusic.deps.json
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\bin\Debug\net5.0\osumusic.runtimeconfig.json
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\bin\Debug\net5.0\osumusic.runtimeconfig.dev.json
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\bin\Debug\net5.0\osumusic.dll
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\bin\Debug\net5.0\ref\osumusic.dll
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\bin\Debug\net5.0\osumusic.pdb
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.csprojAssemblyReference.cache
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.AssemblyInfoInputs.cache
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.AssemblyInfo.cs
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.csproj.CoreCompileInputs.cache
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.dll
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\ref\osumusic.dll
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.pdb
+C:\Users\Gamin\Documents\GitHub\osumusic\osumusic\obj\Debug\net5.0\osumusic.genruntimeconfig.cache
