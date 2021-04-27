@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using TagLib.Flac;
+using TagLib.Mpeg;
 using File = System.IO.File;
 
 namespace osumusic
@@ -38,16 +39,30 @@ namespace osumusic
                 if (!File.Exists(addressResult + "/" + filename + ".mp3"))
                 {
                     File.Copy(mp3path[0], addressResult + "/" + filename + ".mp3");
-                    var mp3file = TagLib.File.Create(addressResult + "/" + filename + ".mp3");
+                    var mp3File = new AudioFile(addressResult + "/" + filename + ".mp3");
                     
                     if (artworkBool == "0")
                     {
-                        if (mp3file.Tag.Pictures.Length > 0)
+                        if (mp3File.Tag.Pictures.Length > 0)
                         {
                             var pictures = new Picture[0];
-                            mp3file.Tag.Pictures = pictures;
-                            mp3file.Save();
+                            mp3File.Tag.Pictures = pictures;
+                            mp3File.Save();
                         }
+                    }
+                    else if (artworkBool == "1")
+                    {
+                        var pictures = new Picture[0];
+                        if (mp3File.Tag.Pictures.Length > 0)
+                        {
+                            mp3File.Tag.Pictures = pictures;
+                            mp3File.Save();
+                        }
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter 0 for no artwork, or 1 with artwork.");
                     }
                 }
                 else
