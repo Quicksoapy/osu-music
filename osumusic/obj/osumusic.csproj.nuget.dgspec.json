@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gamin\\Documents\\GitHub\\osumusic\\osumusic\\osumusic.csproj": {}
+    "C:\\Users\\Gamin\\OneDrive\\Documents\\GitHub\\osu-music\\osumusic\\osumusic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gamin\\Documents\\GitHub\\osumusic\\osumusic\\osumusic.csproj": {
+    "C:\\Users\\Gamin\\OneDrive\\Documents\\GitHub\\osu-music\\osumusic\\osumusic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gamin\\Documents\\GitHub\\osumusic\\osumusic\\osumusic.csproj",
+        "projectUniqueName": "C:\\Users\\Gamin\\OneDrive\\Documents\\GitHub\\osu-music\\osumusic\\osumusic.csproj",
         "projectName": "osumusic",
-        "projectPath": "C:\\Users\\Gamin\\Documents\\GitHub\\osumusic\\osumusic\\osumusic.csproj",
+        "projectPath": "C:\\Users\\Gamin\\OneDrive\\Documents\\GitHub\\osu-music\\osumusic\\osumusic.csproj",
         "packagesPath": "C:\\Users\\Gamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gamin\\Documents\\GitHub\\osumusic\\osumusic\\obj\\",
+        "outputPath": "C:\\Users\\Gamin\\OneDrive\\Documents\\GitHub\\osu-music\\osumusic\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\Gamin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

@@ -7,6 +7,23 @@
     <list default="true" id="03fbc305-2177-4c27-9bf1-5cc1e5ff0a4d" name="Default Changelist" comment="can now choose not to have artwork">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.osumusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.osumusic/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/osumusic/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/bin/Debug/net5.0/osumusic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/bin/Debug/net5.0/osumusic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/bin/Debug/net5.0/osumusic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/bin/Debug/net5.0/osumusic.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/bin/Debug/net5.0/osumusic.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/bin/Debug/net5.0/osumusic.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/bin/Debug/net5.0/ref/osumusic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/bin/Debug/net5.0/ref/osumusic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/osumusic.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/ref/osumusic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/Debug/net5.0/ref/osumusic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/osumusic.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/osumusic.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/osumusic.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/osumusic.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osumusic/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/osumusic/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,11 +35,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/854A684F-BF95-413F-87A5-CF0BCF6C24B6/4d/f322a856/Picture.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/854A684F-BF95-413F-87A5-CF0BCF6C24B6/62/c16ca719/Tag.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/854A684F-BF95-413F-87A5-CF0BCF6C24B6/0a/5affaeb8/File.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/854A684F-BF95-413F-87A5-CF0BCF6C24B6/ea/067dff61/AudioFile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/osumusic/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Gamin/Documents/GitHub/osumusic/osumusic/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/854A684F-BF95-413F-87A5-CF0BCF6C24B6/62/c16ca719/Tag.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -75,6 +89,7 @@
       <updated>1619504938279</updated>
       <workItem from="1619504942369" duration="3801000" />
       <workItem from="1619514135751" duration="3332000" />
+      <workItem from="1619540535615" duration="5718000" />
     </task>
     <task id="LOCAL-00001" summary="Version v1, only simply finds the mp3s and exports them to chosen folder">
       <created>1619507154347</created>

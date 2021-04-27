@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cTKUPM3u53Ua7NEPsia5GlwL+Sra15MeOlZvjs3Ou41lAtuZtJvFAmfJeCcLkqOjEmoPxqAbDMw/wNLIMMub7w==",
+  "dgSpecHash": "YnBGFXMfd53O8cfu5oxFJ1XUWwwEPUIcJfOSvK7ShwmuBfla4pakEw8LzY4nOyXdAfSL0ce2kgBOdmC6m21+TQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gamin\\Documents\\GitHub\\osumusic\\osumusic\\osumusic.csproj",
+  "projectFilePath": "C:\\Users\\Gamin\\OneDrive\\Documents\\GitHub\\osu-music\\osumusic\\osumusic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gamin\\.nuget\\packages\\taglibsharp\\2.2.0\\taglibsharp.2.2.0.nupkg.sha512"
   ],

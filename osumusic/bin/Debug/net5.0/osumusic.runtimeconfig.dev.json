@@ -2,8 +2,7 @@
   "runtimeOptions": {
     "additionalProbingPaths": [
       "C:\\Users\\Gamin\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Gamin\\.nuget\\packages",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "C:\\Users\\Gamin\\.nuget\\packages"
     ]
   }
 }
