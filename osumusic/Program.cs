@@ -79,78 +79,82 @@ namespace osumusic
 
             foreach (var song in songsList)
             {
-                var mp3path = Directory.GetFiles(song, "*.mp3");
-                var filename = Path.GetFileName(song);
-                if (!File.Exists(addressResult + "/" + filename + ".mp3"))
+                var metaDataFiles = Directory.GetFiles(song, "*.osu");
+                var metaDataFile = metaDataFiles[0];
+                var metaDataArray = File.ReadAllLines(metaDataFile);
+                var mp3path = song + "/" + MetaDataSeeker(metaDataArray, "AudioFilename:").Trim();
+                var songName = Path.GetFileName(MetaDataSeeker(metaDataArray, "Title:"));
+                var fileName = Path.GetFileName(mp3path).Split(".");
+                var resultName = songName + "." +  fileName[1];
+                try
                 {
-                    File.Copy(mp3path[0], addressResult + "/" + filename + ".mp3");
-                    var mp3File = new AudioFile(addressResult + "/" + filename + ".mp3");
-                    var metaDataFiles = Directory.GetFiles(song, "*.osu");
-                    
-                    if (metaDataFiles.Length != 0)
+                    File.Copy(mp3path, addressResult + "/" + resultName);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("File already exists in result folder\n" + e);
+                }
+                var mp3File = new AudioFile(addressResult + "/" + resultName);
+                
+                
+                if (metaDataFiles.Length != 0)
+                {
+                    if (unicodeBool == "0")
                     {
-                        var metaDataFile = metaDataFiles[0];
-                        var metaDataArray = File.ReadAllLines(metaDataFile);
-                        if (unicodeBool == "0")
+                        string[] performers = new string[]{MetaDataSeeker(metaDataArray, "ArtistUnicode")};
+                        mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "TitleUnicode");
+                        mp3File.Tag.Performers = performers;
+                    }
+                    else if (unicodeBool == "1")
+                    {
+                        string[] performers = new string[]{MetaDataSeeker(metaDataArray, "Artist:")};
+                        mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title:");
+                        mp3File.Tag.Performers = performers;
+                    }
+                }
+                if (artworkBool == "0")
+                {
+                    if (mp3File.Tag.Pictures.Length > 0)
+                    {
+                        var pictures = new Picture[0];
+                        mp3File.Tag.Pictures = pictures;
+                        mp3File.Save();
+                    }
+                }
+                else if (artworkBool == "1")
+                {
+                    TagLib.Picture pic = null; 
+                    var imagePath = Array.Empty<string>();
+                    try
+                    {
+                        imagePath = Directory.GetFiles(song, "*.jpg");
+                        if (imagePath.Length == 0)
                         {
-                            string[] performers = new string[]{MetaDataSeeker(metaDataArray, "ArtistUnicode")};
-                            mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "TitleUnicode");
-                            mp3File.Tag.Performers = performers;
-                        }
-                        else if (unicodeBool == "1")
-                        {
-                            string[] performers = new string[]{MetaDataSeeker(metaDataArray, "Artist:")};
-                            mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title:");
-                            mp3File.Tag.Performers = performers;
+                            imagePath = Directory.GetFiles(song, "*.png");
                         }
                     }
-                    if (artworkBool == "0")
+                    catch (Exception)
                     {
-                        if (mp3File.Tag.Pictures.Length > 0)
-                        {
-                            var pictures = new Picture[0];
-                            mp3File.Tag.Pictures = pictures;
-                            mp3File.Save();
-                        }
+                        Console.WriteLine("Finding image went wrong");
                     }
-                    else if (artworkBool == "1")
+                    try
                     {
-                        TagLib.Picture pic = null; 
-                        var imagePath = Array.Empty<string>();
-                        try
-                        {
-                            imagePath = Directory.GetFiles(song, "*.jpg");
-                            if (imagePath.Length == 0)
-                            {
-                                imagePath = Directory.GetFiles(song, "*.png");
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Finding image went wrong");
-                        }
-                        try
-                        {
-                            pic = new TagLib.Picture(imagePath[0]);
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Applying image went wrong");
-                            Console.WriteLine(e);
-                        }
+                        pic = new TagLib.Picture(imagePath[0]);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Applying image went wrong");
+                        Console.WriteLine(e);
+                    }
 
-                        if (pic != null)
-                        {
-                            pic.Type = TagLib.PictureType.FrontCover;
-                            pic.Description = "Cover";
-                            mp3File.Tag.Pictures = new TagLib.IPicture[] { pic };
-                            mp3File.Save();
-                        }
-                    }
-                    else
+                    if (pic != null)
                     {
-                        Console.WriteLine("Please enter 0 for no artwork, or 1 with artwork.");
+                        pic.Type = TagLib.PictureType.FrontCover;
+                        pic.Description = "Cover";
+                        mp3File.Tag.Pictures = new TagLib.IPicture[] { pic };
+                        mp3File.Save();
                     }
+                
                 }
                 else
                 {
