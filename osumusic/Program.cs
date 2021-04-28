@@ -27,9 +27,11 @@ namespace osumusic
                 if (!Directory.Exists(addressSongs))
                 {
                     Console.WriteLine("That address doesn't exist on this system. Try again.");
-                    return;
                 }
-                break;
+                else
+                {
+                    break;
+                }
             }
 
             while (true)
@@ -39,9 +41,11 @@ namespace osumusic
                 if (!Directory.Exists(addressResult))
                 {
                     Console.WriteLine("That address doesn't exist on this system. Try again.");
-                    return;
                 }
-                break;
+                else
+                {
+                    break;
+                }
             }
 
             while (true)
@@ -50,10 +54,12 @@ namespace osumusic
                 artworkBool = Console.ReadLine()?.Trim();
                 if (artworkBool != "0" && artworkBool != "1")
                 {
-                    Console.WriteLine("Please type 0 or 1.");
-                    return;
+                    Console.WriteLine("Please type 0 for no artworks, or 1 if you do want artworks.");
                 }
-                break;
+                else
+                {
+                    break;
+                }
             }
             while (true)
             {
@@ -61,10 +67,12 @@ namespace osumusic
                 unicodeBool = Console.ReadLine()?.Trim();
                 if (unicodeBool != "0" && unicodeBool != "1")
                 {
-                    Console.WriteLine("Please type 0 or 1.");
-                    return;
+                    Console.WriteLine("Please type 0 for original text, or 1 for romaji.");
                 }
-                break;
+                else
+                {
+                    break;
+                }
             }
             
             IEnumerable<string> songsList = Directory.EnumerateDirectories(addressSongs);
