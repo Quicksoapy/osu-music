@@ -91,8 +91,8 @@ namespace osumusic
                         }
                         else if (unicodeBool == "1")
                         {
-                            string[] performers = new string[]{MetaDataSeeker(metaDataArray, "Artist")};
-                            mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title");
+                            string[] performers = new string[]{MetaDataSeeker(metaDataArray, "Artist:")};
+                            mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title:");
                             mp3File.Tag.Performers = performers;
                         }
                     }
