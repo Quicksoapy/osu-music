@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Text.RegularExpressions;
 using System.Xml;
 using TagLib.Flac;
 using TagLib.Mpeg;
@@ -84,8 +85,10 @@ namespace osumusic
                 var metaDataArray = File.ReadAllLines(metaDataFile);
                 var mp3path = song + "/" + MetaDataSeeker(metaDataArray, "AudioFilename:").Trim();
                 var songName = Path.GetFileName(MetaDataSeeker(metaDataArray, "Title:"));
+                var songName2 = NameFixer(songName);
                 var fileName = Path.GetFileName(mp3path).Split(".");
-                var resultName = songName + "." +  fileName[1];
+                
+                var resultName = songName2 + "." +  fileName[1];
                 try
                 {
                     File.Copy(mp3path, addressResult + "/" + resultName);
@@ -178,6 +181,12 @@ namespace osumusic
                 }
             }
             return output[1];
+        }
+
+        public static string NameFixer(string text)
+        {
+            string output = Regex.Replace(text, "([\\/:*?\"<>|])", @" ");
+            return output;
         }
     }
 }
