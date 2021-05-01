@@ -86,9 +86,9 @@ namespace osumusic
                 var mp3path = song + "/" + MetaDataSeeker(metaDataArray, "AudioFilename:").Trim();
                 var songName = Path.GetFileName(MetaDataSeeker(metaDataArray, "Title:"));
                 var songName2 = NameFixer(songName);
-                var fileName = Path.GetFileName(mp3path).Split(".");
+                var fileName = Path.GetFileName(mp3path.Substring(mp3path.Length - 4));
                 
-                var resultName = songName2 + "." +  fileName[1];
+                var resultName = songName2  +  fileName;
                 try
                 {
                     File.Copy(mp3path, addressResult + "/" + resultName);
@@ -114,6 +114,7 @@ namespace osumusic
                         mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title:");
                         mp3File.Tag.Performers = performers;
                     }
+                    mp3File.Save();
                 }
                 if (artworkBool == "0")
                 {
