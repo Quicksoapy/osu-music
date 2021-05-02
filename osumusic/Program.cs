@@ -80,24 +80,47 @@ namespace osumusic
 
             foreach (var song in songsList)
             {
-                var metaDataFiles = Directory.GetFiles(song, "*.osu");
+                var folderName = NameFixer(new DirectoryInfo(song).Name);
+                string[] metaDataFiles;
+                try
+                {
+                    metaDataFiles = Directory.GetFiles(song, "*.osu");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("\nmetadata file of " + folderName + " not found\n" +e);
+                    continue;
+                }
+                
+                //add if metadatafiles doesnt exist....
                 var metaDataFile = metaDataFiles[0];
                 var metaDataArray = File.ReadAllLines(metaDataFile);
                 var mp3path = song + "/" + MetaDataSeeker(metaDataArray, "AudioFilename:").Trim();
-                var songName = Path.GetFileName(MetaDataSeeker(metaDataArray, "Title:"));
-                var songName2 = NameFixer(songName);
-                var fileName = Path.GetFileName(mp3path.Substring(mp3path.Length - 4));
                 
-                var resultName = songName2  +  fileName;
+                var fileName = folderName + Path.GetFileName(mp3path.Substring(mp3path.Length - 4));
+                
+                var resultName = fileName;
                 try
                 {
                     File.Copy(mp3path, addressResult + "/" + resultName);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("File already exists in result folder\n" + e);
+                    Console.WriteLine("\nFile " + folderName + " already exists in result folder, or doesn't exist in osu folder\n" + e);
+                    continue;
                 }
-                var mp3File = new AudioFile(addressResult + "/" + resultName);
+
+                AudioFile mp3File;
+                try
+                {
+                    mp3File = new AudioFile(addressResult + "/" + resultName);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("\nThe library i used did a fucky wucky,  " + folderName + " missing\n" + e);
+                    continue;
+                }
+                
                 
                 
                 if (metaDataFiles.Length != 0)
@@ -167,7 +190,7 @@ namespace osumusic
             }
             
             Console.WriteLine("Files successfully exported, enjoy! :D");
-            Console.WriteLine("Press enter to close...");
+            Console.WriteLine("Press any key to close...");
             Console.ReadLine();
         }
         public static string MetaDataSeeker(string[] fileText, string thing)
