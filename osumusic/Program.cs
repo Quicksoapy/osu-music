@@ -80,6 +80,15 @@ namespace osumusic
 
             foreach (var song in songsList)
             {
+                try
+                {
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("\nsomething went wrong\n" +e);
+                    throw;
+                }
                 var folderName = NameFixer(new DirectoryInfo(song).Name);
                 string[] metaDataFiles;
                 try
