@@ -82,120 +82,118 @@ namespace osumusic
             {
                 try
                 {
+                    var folderName = NameFixer(new DirectoryInfo(song).Name);
+                    string[] metaDataFiles;
+                    try
+                    {
+                        metaDataFiles = Directory.GetFiles(song, "*.osu");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("\nmetadata file of " + folderName + " not found\n" +e);
+                        continue;
+                    }
+                    
+                    //add if metadatafiles doesnt exist....
+                    var metaDataFile = metaDataFiles[0];
+                    var metaDataArray = File.ReadAllLines(metaDataFile);
+                    var mp3path = song + "/" + MetaDataSeeker(metaDataArray, "AudioFilename:").Trim();
+                    
+                    var fileName = folderName + Path.GetFileName(mp3path.Substring(mp3path.Length - 4));
+                    
+                    var resultName = fileName;
+                    try
+                    {
+                        File.Copy(mp3path, addressResult + "/" + resultName);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("\nFile " + folderName + " already exists in result folder, or doesn't exist in osu folder\n" + e);
+                        continue;
+                    }
 
+                    AudioFile mp3File;
+                    try
+                    {
+                        mp3File = new AudioFile(addressResult + "/" + resultName);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("\nThe library i used did a fucky wucky,  " + folderName + " missing\n" + e);
+                        continue;
+                    }
+                    
+                    if (metaDataFiles.Length != 0)
+                    {
+                        if (unicodeBool == "0")
+                        {
+                            string[] performers = new string[]{MetaDataSeeker(metaDataArray, "ArtistUnicode")};
+                            mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "TitleUnicode");
+                            mp3File.Tag.Performers = performers;
+                        }
+                        else if (unicodeBool == "1")
+                        {
+                            string[] performers = new string[]{MetaDataSeeker(metaDataArray, "Artist:")};
+                            mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title:");
+                            mp3File.Tag.Performers = performers;
+                        }
+                        mp3File.Save();
+                    }
+                    if (artworkBool == "0")
+                    {
+                        if (mp3File.Tag.Pictures.Length > 0)
+                        {
+                            var pictures = new Picture[0];
+                            mp3File.Tag.Pictures = pictures;
+                            mp3File.Save();
+                        }
+                    }
+                    else if (artworkBool == "1")
+                    {
+                        TagLib.Picture pic = null; 
+                        var imagePath = Array.Empty<string>();
+                        try
+                        {
+                            imagePath = Directory.GetFiles(song, "*.jpg");
+                            if (imagePath.Length == 0)
+                            {
+                                imagePath = Directory.GetFiles(song, "*.png");
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Finding image went wrong");
+                        }
+                        try
+                        {
+                            pic = new TagLib.Picture(imagePath[0]);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Applying image went wrong");
+                            Console.WriteLine(e);
+                        }
+
+                        if (pic != null)
+                        {
+                            pic.Type = TagLib.PictureType.FrontCover;
+                            pic.Description = "Cover";
+                            mp3File.Tag.Pictures = new TagLib.IPicture[] { pic };
+                            mp3File.Save();
+                        }
+                    
+                    }
+                    else
+                    {
+                        Console.WriteLine("File not found");
+                    }
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("\nsomething went wrong\n" +e);
-                    throw;
-                }
-                var folderName = NameFixer(new DirectoryInfo(song).Name);
-                string[] metaDataFiles;
-                try
-                {
-                    metaDataFiles = Directory.GetFiles(song, "*.osu");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("\nmetadata file of " + folderName + " not found\n" +e);
                     continue;
                 }
                 
-                //add if metadatafiles doesnt exist....
-                var metaDataFile = metaDataFiles[0];
-                var metaDataArray = File.ReadAllLines(metaDataFile);
-                var mp3path = song + "/" + MetaDataSeeker(metaDataArray, "AudioFilename:").Trim();
-                
-                var fileName = folderName + Path.GetFileName(mp3path.Substring(mp3path.Length - 4));
-                
-                var resultName = fileName;
-                try
-                {
-                    File.Copy(mp3path, addressResult + "/" + resultName);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("\nFile " + folderName + " already exists in result folder, or doesn't exist in osu folder\n" + e);
-                    continue;
-                }
-
-                AudioFile mp3File;
-                try
-                {
-                    mp3File = new AudioFile(addressResult + "/" + resultName);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("\nThe library i used did a fucky wucky,  " + folderName + " missing\n" + e);
-                    continue;
-                }
-                
-                
-                
-                if (metaDataFiles.Length != 0)
-                {
-                    if (unicodeBool == "0")
-                    {
-                        string[] performers = new string[]{MetaDataSeeker(metaDataArray, "ArtistUnicode")};
-                        mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "TitleUnicode");
-                        mp3File.Tag.Performers = performers;
-                    }
-                    else if (unicodeBool == "1")
-                    {
-                        string[] performers = new string[]{MetaDataSeeker(metaDataArray, "Artist:")};
-                        mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title:");
-                        mp3File.Tag.Performers = performers;
-                    }
-                    mp3File.Save();
-                }
-                if (artworkBool == "0")
-                {
-                    if (mp3File.Tag.Pictures.Length > 0)
-                    {
-                        var pictures = new Picture[0];
-                        mp3File.Tag.Pictures = pictures;
-                        mp3File.Save();
-                    }
-                }
-                else if (artworkBool == "1")
-                {
-                    TagLib.Picture pic = null; 
-                    var imagePath = Array.Empty<string>();
-                    try
-                    {
-                        imagePath = Directory.GetFiles(song, "*.jpg");
-                        if (imagePath.Length == 0)
-                        {
-                            imagePath = Directory.GetFiles(song, "*.png");
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Finding image went wrong");
-                    }
-                    try
-                    {
-                        pic = new TagLib.Picture(imagePath[0]);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Applying image went wrong");
-                        Console.WriteLine(e);
-                    }
-
-                    if (pic != null)
-                    {
-                        pic.Type = TagLib.PictureType.FrontCover;
-                        pic.Description = "Cover";
-                        mp3File.Tag.Pictures = new TagLib.IPicture[] { pic };
-                        mp3File.Save();
-                    }
-                
-                }
-                else
-                {
-                    Console.WriteLine("File not found");
-                }
             }
             
             Console.WriteLine("Files successfully exported, enjoy! :D");
