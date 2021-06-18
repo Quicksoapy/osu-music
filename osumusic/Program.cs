@@ -93,7 +93,12 @@ namespace osumusic
                     continue;
                 }
                 
-                //add if metadatafiles doesnt exist....
+                
+                if (metaDataFiles == null || metaDataFiles.Length == 0)
+                {
+                    Console.WriteLine("\nFile " + folderName + " doesn't have any metadata lol oof skipped this song\n");
+                    continue;
+                }
                 var metaDataFile = metaDataFiles[0];
                 var metaDataArray = File.ReadAllLines(metaDataFile);
                 var mp3path = song + "/" + MetaDataSeeker(metaDataArray, "AudioFilename:").Trim();
@@ -126,17 +131,29 @@ namespace osumusic
                 {
                     if (unicodeBool == "0")
                     {
-                        string[] performers = new string[]{MetaDataSeeker(metaDataArray, "ArtistUnicode")};
-                        mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "TitleUnicode");
-                        mp3File.Tag.Performers = performers;
+                        try
+                        {
+                            string[] performers = new string[]{MetaDataSeeker(metaDataArray, "ArtistUnicode")};
+                            mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "TitleUnicode");
+                            mp3File.Tag.Performers = performers;
+                            mp3File.Save();
+                        }
+                        catch 
+                        {
+                            string[] performers = new string[]{MetaDataSeeker(metaDataArray, "Artist:")};
+                            mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title:");
+                            mp3File.Tag.Performers = performers;
+                            mp3File.Save();
+                        }
                     }
                     else if (unicodeBool == "1")
                     {
                         string[] performers = new string[]{MetaDataSeeker(metaDataArray, "Artist:")};
                         mp3File.Tag.Title = MetaDataSeeker(metaDataArray, "Title:");
                         mp3File.Tag.Performers = performers;
+                        mp3File.Save();
                     }
-                    mp3File.Save();
+                    
                 }
                 if (artworkBool == "0")
                 {
@@ -203,6 +220,7 @@ namespace osumusic
                     output = lineThing.Split(":");
                 }
             }
+            
             return output[1];
         }
 
