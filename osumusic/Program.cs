@@ -96,7 +96,7 @@ namespace osumusic
                 
                 if (metaDataFiles == null || metaDataFiles.Length == 0)
                 {
-                    Console.WriteLine("\nFile " + folderName + " doesn't have any metadata lol oof skipped this song\n");
+                    Console.WriteLine("\nFile " + folderName + " doesn't have any metadata, skipped this song\n");
                     continue;
                 }
                 var metaDataFile = metaDataFiles[0];
@@ -123,7 +123,7 @@ namespace osumusic
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("\nThe library i used did a fucky wucky,  " + folderName + " missing\n" + e);
+                    Console.WriteLine("\nThe library i used had a fatal error,  " + folderName + " missing\n" + e);
                     continue;
                 }
                 
@@ -231,20 +231,3 @@ namespace osumusic
         }
     }
 }
-/*
-TagLib.CorruptFileException: Text delimiter expected.
-   at TagLib.Id3v2.SynchronisedLyricsFrame.ParseFields(ByteVector data, Byte version)
-   at TagLib.Id3v2.FrameFactory.CreateFrame(ByteVector data, File file, Int32& offset, Byte version, Boolean alreadyUnsynched)
-   at TagLib.Id3v2.Tag.Parse(ByteVector data, File file, Int64 position, ReadStyle style)
-   at TagLib.Id3v2.Tag.Read(File file, Int64 position, ReadStyle style)
-   at TagLib.NonContainer.StartTag.ReadTag(Int64& start, ReadStyle style)
-   at TagLib.NonContainer.StartTag.Read(ReadStyle style)
-   at TagLib.NonContainer.File.Read(ReadStyle propertiesStyle)
-   at osumusic.Program.Main(String[] args) in C:\Users\Gamin\OneDrive\Documents\GitHub\osu-music\osumusic\Program.cs:line 117 (-2 lines, removed try catch)
-Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.
-   at osumusic.Program.Main(String[] args) in C:\Users\Gamin\OneDrive\Documents\GitHub\osu-music\osumusic\Program.cs:line 97 (-2 lines, removed try catch)
-
--
-after 18.368 result songs
-??
-*/
