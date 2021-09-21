@@ -16,7 +16,7 @@ namespace osumusic
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hi! Thanks for using osu!music by Quicksoapy. For more information and the download link, go to 'https://quicksoapy.nl/programs.html#osumusic'.");
+            Console.WriteLine("Hi! Thanks for using osu!music by Quicksoapy.");
             string addressSongs;
             string addressResult;
             string artworkBool;
