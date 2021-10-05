@@ -1,4 +1,22 @@
-# osu-music : Exports music from the rhythm game osu!
+# osu!music
 
-This is a c# console application, where you can fill in the directory of your osu! songs folder, and it will cycle through every folder within said directory, grabbing the metadata
-out of the text file (either original text or in the english alphabet), grabbing the background to use as picture (optional), and grabbing the music file to add the metadata and image to, and export it into a chosen directory.
+osu!music is a music exporter for the rhythm game [osu!](https://osu.ppy.sh/) as a console application.
+
+## Installation
+
+Build it in your c# IDE.
+
+### Requirements
+
+- Windows System
+- .NET 5
+- an official osu! client
+
+## Usage
+
+1. You will be asked for the directory of your osu! songs.
+2. You will then be asked where the resulting mp3 files should go.
+3. Then choose if you'd like the backgrounds of the maps to be used as images for the mp3 file metadata.
+4. Then, choose between the original text or text using the (more common) latin alphabet.
+Then it will start processing and exporting the songs with your chosen metadata settings.
+
